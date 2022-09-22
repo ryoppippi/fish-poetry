@@ -25,12 +25,6 @@ if command -s poetry > /dev/null
             return
         end
 
-        # For nested projects
-        if test -n "$POETRY_ACTIVE"
-            deactivate
-            set -e POETRY_ACTIVE
-        end
-
         if not test -n "$POETRY_ACTIVE"
           if poetry env info -p >/dev/null 2>&1
             set -x __poetry_fish_initial_pwd "$PWD"
