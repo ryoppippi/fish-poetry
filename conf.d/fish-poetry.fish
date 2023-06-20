@@ -28,7 +28,7 @@ if command -s poetry > /dev/null
         if not test -n "$POETRY_ACTIVE"
           if poetry env info -p >/dev/null 2>&1
             set -x __poetry_fish_initial_pwd "$PWD"
-            if test -e "$PWD/.env"
+            if test "$FISH_POETRY_LOAD_ENV" -a -e "$PWD/.env"
                 echo "Setting environment variables..."
                 posix-source $PWD/.env
             end
