@@ -9,7 +9,9 @@ hooks into a change in PWD to automatically launch a [Poetry](https://python-poe
 ## Installation
 
 
-|manager|command|
-|---|---|
-|[fisher](https://github.com/jorgebucaran/fisher)|`fisher install 'ryoppippi/fish-poetry'`|
+| manager                                          | command                                  |
+| ------------------------------------------------ | ---------------------------------------- |
+| [fisher](https://github.com/jorgebucaran/fisher) | `fisher install 'ryoppippi/fish-poetry'` |
 
+## Options
+Optionally you can load environment variables from a `.env` file. To do so you must `set FISH_POETRY_LOAD_ENV true`
