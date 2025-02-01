@@ -12,7 +12,6 @@ if command -s poetry > /dev/null
         end
     end
 
-
     function __poetry_shell_activate --on-variable PWD
         if status --is-command-substitution
             return
@@ -43,6 +42,9 @@ if command -s poetry > /dev/null
             end
         end
     end
+
+    # Check if this shell was started in a directory that has a poetry project and directly activate it
+    __poetry_shell_activate
 else
     function poetry -d "https://python-poetry.org"
         echo "Install https://python-poetry.org to use this plugin." > /dev/stderr
