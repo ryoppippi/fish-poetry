@@ -1,4 +1,4 @@
-if command -s poetry > /dev/null
+if command -s poetry >/dev/null
 
     # complete --command poetry --arguments "(env _POETRY_COMPLETE=complete-fish COMMANDLINE=(commandline -cp) poetry)" -f
 
@@ -47,7 +47,7 @@ if command -s poetry > /dev/null
     __poetry_shell_activate
 else
     function poetry -d "https://python-poetry.org"
-        echo "Install https://python-poetry.org to use this plugin." > /dev/stderr
+        echo "Install https://python-poetry.org to use this plugin." >/dev/stderr
         return 1
     end
 end
