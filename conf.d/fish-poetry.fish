@@ -12,6 +12,15 @@ if command -s poetry >/dev/null
         end
     end
 
+    function __poetry_env_activate
+        set major_version (poetry --version | awk '{print $3}' | cut -d. -f1)
+        if test $major_version -lt 2
+            poetry shell
+        else
+            eval (poetry env activate)
+        end
+    end
+
     function __poetry_shell_activate --on-variable PWD
         if status --is-command-substitution
             return
@@ -32,7 +41,7 @@ if command -s poetry >/dev/null
                     posix-source $PWD/.env
                 end
 
-                poetry shell
+            __poetry_env_activate
 
                 set -e __poetry_fish_initial_pwd
                 if test -n "$__poetry_fish_final_pwd"
